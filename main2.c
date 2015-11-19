@@ -8,10 +8,10 @@
 #include <stdio.h>
 #include <math.h>
 
-static double E = 20;
-static double L = 5;
-static double R = 10;
-static double h = 0.01;
+// static double E = 20;
+// static double L = 5;
+// static double R = 10;
+// static double h = 0.01;
 
 double dydx( double t, double I )						//  Differential Equation: dydx( t, I ) = f( t, I ) = dI/dt
 {
@@ -24,8 +24,8 @@ double predcorr( double t, double I )				// Predictor Correcotr Method
 																		// I_i1: new value of current at next time step
 	I_p = I + h * dydx( t, I );								// Predictor Formula
 
-	I_i1 = I + 0.5 * h * ( dydx( t, I ) + dydx( t + h, I_p ) );	// Corrector Formula
-	I_i1 = I_i1+1;
+	I_i1 = I + 5 * h * ( dydx( t, I ) + dydx( t + h, I_p ) );	// Corrector Formula
+
 	return I_i1;
 }
 
@@ -35,7 +35,7 @@ int main()
 	double current_time = 0.0;							// at time = 0s.
 	unsigned short Loop_times, i;						// Loop_times: number of times the 'for' loop will run
 																		// i: counting variables of 'for' loop
-	Loop_times = 1.0 / h;										// One second divided by the step
+	Loop_times = 100/ h;										// One second divided by the step
 
 	for( i = 0 ; i < Loop_times  ; i++ )
 	{
