@@ -24,7 +24,7 @@ double predcorr( double t, double I )				// Predictor Correcotr Method
 																		// I_i1: new value of current at next time step
 	I_p = I + h * dydx( t, I );								// Predictor Formula
 
-	I_i1 = I + 0.5 * h * ( dydx( t, I ) + dydx( t + h, I_p ) );	// Corrector Formula
+	I_i1 = I + 5 * h * ( dydx( t, I ) + dydx( t + h, I_p ) );	// Corrector Formula
 
 	return I_i1;
 }
